@@ -12,6 +12,7 @@ class Project(models.Model):
     completed = models.BooleanField(default=True)
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
     link = models.URLField(default='', max_length=300)
+    member = models.ManyToManyField("Member", related_name='projects')
     
     def __str__(self):
         """String representation of single project """        
@@ -23,9 +24,12 @@ class Project(models.Model):
         
 class Member(models.Model):
     name = models.CharField(max_length=200)
+    lastname = models.CharField(max_length=200, default='')
     role = models.CharField(max_length=200)
     
     def __str__(self):
         """String representation of single project member """        
-        return f'{self.name}'
+        return f'{self.name} {self.lastname}'
     
+    class Meta:
+        ordering = ['name']
