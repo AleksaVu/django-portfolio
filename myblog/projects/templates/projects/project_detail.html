@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Aleksa's Blog</a>
@@ -34,37 +35,16 @@
     </nav>
 
 
-    <div class="row m-4">
+    <a href="/projects/" class="btn btn-primary m-3"> Back to all projects</a>
+    <div class="card m-3">
 
-        {% for project in projects %}
-        <div class="col-sm-6 mb-4">
-            <div class="card">
-                <div class="card-header">
-                    {% if project.completed %} <span>Completed</span> {% else %} <span style="color: #0d6efd">Active</span> {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ project.name }}</h5>
-                        <p class="card-text">{{ project.description }}</p>
-                        <a href="/projects/{{project.id}}" class="btn btn-primary">See details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-
-    </div>
-
-
-
-    <!-- <div class="card">
-        <div class="card-header">
-            Featured
-        </div>
+        <h5 class="card-header"> {{ project.name }}</h5>
         <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p class="card-text">Members on this project:</p>
+            <p class="card-text">{{ project.description }}</p>
+            <a href="{{ project.link }}" target="_blank" class="btn btn-primary">Go to GitHub repository</a>
         </div>
-    </div> -->
+    </div>
 
 
 

@@ -23,6 +23,7 @@ class Project(models.Model):
         
         
 class Member(models.Model):
+    """ A model of a project member """
     name = models.CharField(max_length=200)
     lastname = models.CharField(max_length=200, default='')
     role = models.CharField(max_length=200)

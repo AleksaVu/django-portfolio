@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import Project
 
-# Create your views here.
 
 def project_listing(request):
     """ View all projects"""
@@ -9,7 +8,7 @@ def project_listing(request):
     return render(request, 'projects/project_listing.html', {'projects': projects})
 
 
-def project_details(request, project_id):
+def project_detail(request, project_id):
     """ A view of project detail"""
     project = Project.objects.get(pk=project_id)
     return render(request, 'projects/project_detail.html', {'project': project})
