@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Aleksa's Blog</a>
@@ -29,47 +30,29 @@
                         <a class="nav-link" href="/about-me">About me</a>
                     </li>
                 </ul>
-                <form action="{% url 'project-search' %}" method="get" class="d-flex">
-                    <input name="q" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-
             </div>
         </div>
     </nav>
 
 
-    <div class="row m-4">
+    <a href="/projects/" class="btn btn-primary m-3"> Back to all projects </a> {% if results %}
+    <div class="card m-3">
 
-        {% for project in projects %}
-        <div class="col-sm-6 mb-4">
-            <div class="card">
-                <div class="card-header">
-                    {% if project.completed %} <span>Completed</span> {% else %} <span style="color: #0d6efd">Active</span> {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ project.name }}</h5>
-                        <p class="card-text">{{ project.description }}</p>
-                        <a href="/projects/{{project.id}}" class="btn btn-primary">See details</a>
-                    </div>
-                </div>
-            </div>
+        <h5 class="card-header"> {{ project.name }}</h5>
+        <div class="card-body">
+            <p class="card-text">
+                Status: {% if project.completed %} <span>completed</span> {% else %} <span style="color: #0d6efd">active</span> {% endif %}
+            </p>
+            <p class="card-text"> Programming language: {{ project.language }} </p>
+            <p class="card-text"> Project members: {% for p in project.member.all %} {{ p.name }} {{ p.lastname }}, {% endfor %} </p>
+            <p class="card-text">{{ project.description }}</p>
+            <a href="{{ project.link }}" target="_blank" class="btn btn-primary">Go to GitHub repository</a>
         </div>
-        {% endfor %}
-
     </div>
 
-
-
-    <!-- <div class="card">
-        <div class="card-header">
-            Featured
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div> -->
+    {% else %}
+    <p class="card-text">That project can't be found!</p>
+    {% endif %}
 
 
 
