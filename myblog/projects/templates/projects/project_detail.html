@@ -40,7 +40,11 @@
 
         <h5 class="card-header"> {{ project.name }}</h5>
         <div class="card-body">
-            <p class="card-text">Members on this project:</p>
+            <p class="card-text">
+                Status: {% if project.completed %} <span>completed</span> {% else %} <span style="color: #0d6efd">active</span> {% endif %}
+            </p>
+            <p class="card-text"> Programming language: {{ project.language }} </p>
+            <p class="card-text"> Project members: {% for p in project.member.all %} {{ p.name }} {{ p.lastname }}, {% endfor %} </p>
             <p class="card-text">{{ project.description }}</p>
             <a href="{{ project.link }}" target="_blank" class="btn btn-primary">Go to GitHub repository</a>
         </div>

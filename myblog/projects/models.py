@@ -12,7 +12,7 @@ class Project(models.Model):
     completed = models.BooleanField(default=True)
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
     link = models.URLField(default='', max_length=300)
-    member = models.ManyToManyField("Member", related_name='projects')
+    member = models.ManyToManyField("Member", blank=True)
     
     def __str__(self):
         """String representation of single project """        
@@ -30,7 +30,7 @@ class Member(models.Model):
     
     def __str__(self):
         """String representation of single project member """        
-        return f'{self.name} {self.lastname}'
+        return f'{self.name} {self.lastname} '
     
     class Meta:
         ordering = ['name']

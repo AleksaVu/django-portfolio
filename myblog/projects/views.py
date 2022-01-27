@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Project
+from .models import Member, Project
 
 
 def project_listing(request):
@@ -10,5 +10,5 @@ def project_listing(request):
 
 def project_detail(request, project_id):
     """ A view of project detail"""
-    project = Project.objects.get(pk=project_id)
+    project = Project.objects.get(pk=project_id)        
     return render(request, 'projects/project_detail.html', {'project': project})
