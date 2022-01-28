@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %} {% include 'nav.html' %}
 
-<a href="/blog/" class="btn btn-primary m-3"> Back to all blog posts</a>
+<a href="/blog/" class="btn btn-primary m-3"> Back to all blog posts</a> {% if results %}
 
 <div class="container-xl mt-4">
     <h1 class="mb-3"> {{ post.title }} </h1>
@@ -11,4 +11,7 @@
         <p> {{ post.body }}</p>
     </div>
 </div>
-{% endblock %}
+
+{% else %}
+<p class="card-text">That post can't be found!</p>
+{% endif %} {% endblock %}
