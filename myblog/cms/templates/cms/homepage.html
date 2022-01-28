@@ -9,11 +9,9 @@
 
 
     <!-- Last 3 projects -->
-
     <div class="row mt-4">
         <h3>Last projects:</h3>
         {% for project in projects %}
-
         <div class="col-sm-6 ">
             <div class="card text-white bg-dark m-3">
                 <div class="card-header">{% if project.completed %} <span>Completed</span> {% else %} <span style="color: #0d6efd">Active</span> {% endif %}</div>
@@ -24,14 +22,29 @@
                 </div>
             </div>
         </div>
-
         {% endfor %}
     </div>
 
     <!-- Last blog posts -->
-
-    <div class="row mt-4">
+    <div class="mt-5">
         <h3>Last blog posts:</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
+            {% for post in posts %}
+            <div class="col">
+                <div class="card m-3 bg-dark">
+                    <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body white text-light">
+                        <h5 class="card-title"> {{ post.title}} </h5>
+                        <p class="card-text">{{ post.subtitle}}</p>
+                        <a href="blog/blog-post/{{post.id}}" class="btn btn-primary">Read now</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Uploaded: {{ post.date }}</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 
 </div>
