@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     'django_cleanup.apps.CleanupConfig',
     'debug_toolbar',
     'cms',
@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
@@ -63,8 +63,9 @@ ROOT_URLCONF = 'myblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR / 'cms/templates/cms',
+        'DIRS': [BASE_DIR / 'cms/templates/cms',
                  BASE_DIR / 'projects/templates/projects',
+                 BASE_DIR / 'blog/templates/blog',
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -73,7 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
                 'django.template.context_processors.media',
             ],
         },
@@ -118,7 +119,6 @@ DATABASES = {
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
-
 
 
 # Password validation

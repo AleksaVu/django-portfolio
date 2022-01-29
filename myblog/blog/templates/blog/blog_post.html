@@ -10,5 +10,31 @@
         <h5> {{ post.date }}</h5>
         <p> {{ post.body }}</p>
     </div>
+
+
+    <div>
+        <h3 class="mt-5">Comments:</h3>
+        <form action="" method="post">
+            {% csrf_token %} {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Post Comment">
+        </form>
+
+    </div>
+
+
+    <!-- <div class="mt-4">
+        <p>Add comment:</p>
+        <label for="nickname" class="form-label"></label>
+        <input type="text" class="form-control" id="nickname" placeholder="Pick nickname">
+    </div>
+    <div class="mb-3">
+        <label for="comment" class="form-label"></label>
+        <textarea class="form-control" id="comment" rows="3" placeholder="Comment here"></textarea>
+    </div> -->
+
+
 </div>
+
+
+
 {% endblock %}
