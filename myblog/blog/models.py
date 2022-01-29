@@ -1,8 +1,6 @@
 from datetime import datetime
 from django.db import models
 
-# Create your models here.
-
 
 class Post(models.Model):
     """ A model of a blog post """

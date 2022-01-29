@@ -16,7 +16,7 @@ def blog_post(request, post_id):
     if form.is_valid():
         new_comment = form.save(commit=False)
         new_comment.post = post
-        new_comment = form.save()
+        new_comment = form.save()        
     return render(request, 'blog/blog_post.html', {'post': post, 'form': form, 'new_comment':new_comment})
 
 
@@ -32,8 +32,3 @@ def post_search(request):
     return render(request, 'blog/post_searched.html', {'post': post, 'results': queried_post_exists})
 
 
-# def add_comment(request):
-#     form = CommentForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#     return render(request, 'blog/blog_post.html', {'form': form})

@@ -1,7 +1,6 @@
 {% extends 'base.html' %} {% block content %} {% include 'nav.html' %}
 
 
-
 <div class="container-xl mt-4">
     <a href="/blog/" class="btn btn-primary m-3"> Back to all blog posts</a>
     <h1 class="mb-3"> {{ post.title }} </h1>
@@ -35,21 +34,7 @@
     </div>
 
     {% endfor %}
-
-
-    <!-- <div class="mt-4">
-        <p>Add comment:</p>
-        <label for="nickname" class="form-label"></label>
-        <input type="text" class="form-control" id="nickname" placeholder="Pick nickname">
-    </div>
-    <div class="mb-3">
-        <label for="comment" class="form-label"></label>
-        <textarea class="form-control" id="comment" rows="3" placeholder="Comment here"></textarea>
-    </div> -->
-
-
 </div>
-
 
 
 {% endblock %}
