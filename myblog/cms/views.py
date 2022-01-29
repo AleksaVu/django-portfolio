@@ -4,8 +4,8 @@ from blog.models import Post
 
 
 def homepage(request):
-    projects = Project.objects.all().order_by('id')[:4]
-    posts = Post.objects.all().order_by('id')[:3]
+    projects = Project.objects.all().order_by('-id')[:4]
+    posts = Post.objects.all().order_by('-id')[:3]
     return render(request, 'cms/homepage.html', {'projects': projects, 'posts':posts})
 
 

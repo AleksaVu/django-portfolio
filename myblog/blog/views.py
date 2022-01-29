@@ -11,9 +11,13 @@ def post_listing(request):
 def blog_post(request, post_id):
     post = Post.objects.get(id=post_id)
     form = CommentForm(request.POST or None)
+    #comments = post.comments.all()
+    new_comment = None
     if form.is_valid():
-        form.save()
-    return render(request, 'blog/blog_post.html', {'post': post, 'form': form})
+        new_comment = form.save(commit=False)
+        new_comment.post = post
+        new_comment = form.save()
+    return render(request, 'blog/blog_post.html', {'post': post, 'form': form, 'new_comment':new_comment})
 
 
 def post_search(request):

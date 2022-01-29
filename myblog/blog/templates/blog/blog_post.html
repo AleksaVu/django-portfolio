@@ -1,8 +1,9 @@
 {% extends 'base.html' %} {% block content %} {% include 'nav.html' %}
 
-<a href="/blog/" class="btn btn-primary m-3"> Back to all blog posts</a>
+
 
 <div class="container-xl mt-4">
+    <a href="/blog/" class="btn btn-primary m-3"> Back to all blog posts</a>
     <h1 class="mb-3"> {{ post.title }} </h1>
     <img src="{{ post.image.url }}" class="img-fluid" alt=" Post image">
     <div class="container ">
@@ -13,13 +14,27 @@
 
 
     <div>
-        <h3 class="mt-5">Comments:</h3>
+        <h4 class="mt-5">Add Comment:</h4>
         <form action="" method="post">
             {% csrf_token %} {{ form.as_p }}
-            <input class="btn btn-primary" type="submit" value="Post Comment">
+            <input class="btn btn-primary" type="submit" value="Add Comment">
         </form>
 
     </div>
+
+
+    <h4 class="mt-5">Comments:</h4>
+    {% for c in post.comment_set.all %}
+    <div class="container-xl mt-4" style="padding: 10px;">
+        <p class="fw-bold">
+            {{ c.nickname }}
+            <span> - {{ c.date }} </span>
+        </p>
+        {{ c.comment | linebreaks }}
+        <hr>
+    </div>
+
+    {% endfor %}
 
 
     <!-- <div class="mt-4">

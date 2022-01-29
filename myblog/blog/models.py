@@ -22,9 +22,16 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """ A model of a single comment """
+    
     nickname = models.CharField(max_length=200)
     comment = models.TextField(max_length=5000)
+    date = models.DateTimeField(default=datetime.now)
     post = models.ForeignKey('Post', on_delete=models.CASCADE, blank=True)
 
+    def __str__(self):
+        """String representation of single project """
+        return f'{self.post}' + " " + f'{self.date}' 
+    
     class Meta:
         ordering = ['id']

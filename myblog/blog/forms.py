@@ -9,17 +9,10 @@ class CommentForm(forms.ModelForm):
                   'comment'
                   ]
         # fields = '__all__'
+        widgets = {
+            'nickname' : forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter nickname'}),
+            'comment' : forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter comment', 'label': 'Body'})            
+        }    
 
 
-# class CommentForm(forms.ModelForm):
-#     nickname = forms.CharField(widget=forms.TextInput(
-#         attrs={'class': 'form-control', 'placeholder': 'Pick nickname', 'label': 'Nickname:'}))
-#     comment = forms.CharField(widget=forms.TextInput(
-#         attrs={'class': 'form-control', 'placeholder': 'Comment here', 'label': 'Comment:'}))
 
-
-# class CommentForm(forms.Form):
-#     nickname= forms.CharField(max_length=100)
-#     nickname.widget.attrs.update({'class': 'form-label'})
-#     comment = forms.CharField(max_length=100)
-#     comment.widget.attrs.update(size='100')
