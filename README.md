@@ -34,3 +34,14 @@ Once `pip3` has finished downloading the dependencies:
 And navigate to `http://127.0.0.1:8000/`.
 
 
+Demo
+---
+![Alt text](preview_images/homescreen.png?raw=true "Homepage.")
+![Alt text](preview_images/allprojects.png?raw=true "List of all projects.")
+![Alt text](preview_images/projectdetail.png?raw=true "Single project details.")
+![Alt text](preview_images/allblogposts.png?raw=true "List of all blog posts.")
+![Alt text](preview_images/blogpost.png?raw=true "Single blog post.")
+![Alt text](preview_images/commentsection.png?raw=true "Comment section")
+
+
+
