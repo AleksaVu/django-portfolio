@@ -119,27 +119,17 @@ DATABASES = {
 }
 
 # CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": "redis://127.0.0.1:6379/1",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     }
+    # 'default': {
+        # 'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        # 'LOCATION': 'redis://127.0.0.1:6379',
+    # }
 # }
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379',
-    }
-}
 
 
 # SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 # SESSION_CACHE_ALIAS = "default"
 # cache time to live
-CACHE_TTL = 60 * 15
+CACHE_TTL = 0.5 * 15
 
 INTERNAL_IPS = [
     '127.0.0.1',

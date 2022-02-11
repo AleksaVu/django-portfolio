@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required 
+from .forms import AddProjectForm
 from .models import Member, Project
 
 
@@ -25,3 +27,12 @@ def project_search(request):
     except:
         queried_project_exists = False
     return render(request, 'projects/project_searched.html', {'project': project , 'results': queried_project_exists})
+
+@login_required
+def add_project(request):
+    form = AddProjectForm(request.POST or None)        
+    if form.is_valid():
+        # new_project = form.save(commit=False)        
+        # new_project = form.save()
+        form.save()
+    return render(request, 'projects/add_project.html', {'form': form})

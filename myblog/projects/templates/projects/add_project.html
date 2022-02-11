@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %} {% include 'nav.html' %}
+
+<div class="container-xl mt-4">
+  {% if user.is_authenticated %}
+  <h4 class="mt-5">Add New Project:</h4>
+  <form action="" method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" value="Add Project" />
+  </form>
+  {% endif %}
+</div>
+{% endblock %}
