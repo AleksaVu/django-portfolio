@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cms',
     "projects",
     "blog",
+    "accounts",
 ]
 
 MIDDLEWARE = [
@@ -69,6 +70,7 @@ TEMPLATES = [
         'DIRS': [BASE_DIR / 'cms/templates/cms',
                  BASE_DIR / 'projects/templates/projects',
                  BASE_DIR / 'blog/templates/blog',
+                 BASE_DIR / 'accounts/templates/registration',
                  ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -83,6 +85,9 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'myblog.wsgi.application'
 

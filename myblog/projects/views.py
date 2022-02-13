@@ -1,5 +1,6 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
 from .forms import AddProjectForm
 from .models import Member, Project
 
@@ -34,5 +35,7 @@ def add_project(request):
     if form.is_valid():
         # new_project = form.save(commit=False)        
         # new_project = form.save()
-        form.save()
+        form.save(commit=True)
+        form = AddProjectForm(request.POST or None)
+        return HttpResponseRedirect("")     
     return render(request, 'projects/add_project.html', {'form': form})
