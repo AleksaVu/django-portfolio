@@ -47,7 +47,12 @@
       ></i>
       <span> User: {{ user.username }}</span>
     </div>
-    <a href="accounts/logout" class="btn btn-primary m-2"> Log out</a>
+    <a
+      href="{% url 'logout' %}?next={{ request.path }}"
+      class="btn btn-primary m-2"
+    >
+      Log out</a
+    >
     {% endif %}
   </div>
 </nav>
